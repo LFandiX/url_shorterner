@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 
 load_dotenv()  # Baca file .env
 # Supabase credentials
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+SUPABASE_URL = "https://etxyomkjynglfwmopytg.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV0eHlvbWtqeW5nbGZ3bW9weXRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwNDAzODcsImV4cCI6MjA2NzYxNjM4N30.ZWlhHLvpfLJ5E-oivh-BrdM01fpUzJOigdwgqi7__4E"
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 app = Flask(__name__)
