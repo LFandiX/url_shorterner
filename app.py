@@ -28,13 +28,23 @@ def home():
         if admin_code != kodeadmin:
             return "❌ Admin code salah. Akses ditolak.", 403
 
+        # Daftar kode yang tidak boleh digunakan
+        blacklist = ['admin', 'posturl', 'edit', 'delete']
+
         # Jika user isi custom code
         if custom_code:
+            # Cek apakah custom_code ada di blacklist
+            for forbidden in blacklist:
+                if custom_code == forbidden or custom_code.startswith(forbidden + '/') or custom_code.endswith('/' + forbidden):
+                    return f"❌ Kode '{custom_code}' tidak diizinkan karena bertabrakan dengan route sistem.", 400
+
+            # Cek apakah kode sudah dipakai
             check = supabase.table("urls").select("code").eq("code", custom_code).execute()
             if check.data:
                 return f"❌ Shortcode '{custom_code}' sudah digunakan. Coba kode lain.", 400
             code = custom_code
         else:
+            # Auto-generate kode hingga tidak bentrok
             code = generate_code()
             while supabase.table("urls").select("code").eq("code", code).execute().data:
                 code = generate_code()
@@ -46,8 +56,7 @@ def home():
 
     return render_template('form.html')
 
-
-@app.route('/<code>')
+@app.route('/<path:code>')
 def redirect_to_url(code):
     result = supabase.table("urls").select("long_url").eq("code", code).execute()
     if result.data:
