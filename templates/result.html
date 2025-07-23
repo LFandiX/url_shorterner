@@ -1,8 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head><title>Shortened</title></head>
+<head>
+  <title>Shortened</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    a {
+      font-size: 18px;
+      color: #3498db;
+      word-break: break-all;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+   
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
+
+      a {
+        font-size: 16px;
+      }
+
+    }
+  </style>
+</head>
 <body>
-  <h2>Here is your short URL:</h2>
-  <p><a href="{{ short_url }}">{{ short_url }}</a></p>
+  <div class="container">
+    <h2>Here is your short URL:</h2>
+    <p><a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
+
+  </div>
+
+
 </body>
 </html>

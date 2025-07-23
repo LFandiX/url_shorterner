@@ -1,27 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head><title>Admin Page</title></head>
-<body>
-  <h2>📋 Daftar Semua Short URL</h2>
-  <table border="1" cellpadding="5">
-    <tr>
-      <th>Shortcode</th>
-      <th>Long URL</th>
-      <th>Aksi</th>
-    </tr>
-    {% for row in data %}
-  <tr>
-    <td>{{ row.code }}</td>
-    <td>{{ row.long_url }}</td>
-    <td>
-      <a href="/edit/{{ row.code }}">Edit</a> |
-      <a href="/delete/{{ row.code }}">Delete</a>
-    </td>
-  </tr>
-{% endfor %}
+<head>
+  <title>Admin Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+      background-color: #f5f7fa;
+      color: #333;
+    }
 
-  </table>
-  <br>
-  <a href="/posturl">← Kembali ke halaman utama</a>
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .shortcode {
+      font-weight: bold;
+      color: #3498db;
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+
+    .long-url {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      word-break: break-word;
+    }
+
+    .actions a {
+      color: #3498db;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: 500;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    .back-link {
+      display: block;
+      margin: 30px auto 0;
+      text-align: center;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📋 Daftar Semua Short URL</h2>
+
+  <div class="card-container">
+    {% for row in data %}
+    <div class="card">
+      <div class="shortcode">sphplg.click/{{ row.code }}</div>
+      <div class="long-url">{{ row.long_url }}</div>
+      <div class="actions">
+        <a href="/edit/{{ row.code }}">Edit</a>
+        <a href="/delete/{{ row.code }}">Delete</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <a class="back-link" href="/posturl">← Kembali ke halaman utama</a>
+
 </body>
 </html>

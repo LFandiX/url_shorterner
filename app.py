@@ -70,7 +70,7 @@ def admin():
     return render_template('admin.html', data=result.data)
 
 # Edit
-@app.route('/edit/<code>', methods=['GET', 'POST'])
+@app.route('/edit/<path:code>', methods=['GET', 'POST'])
 def edit(code):
     result = supabase.table("urls").select("*").eq("code", code).execute()
     if not result.data:
@@ -99,7 +99,7 @@ def edit(code):
     return render_template('edit.html', code=code, url=result.data[0]['long_url'])
 
 # Delete
-@app.route('/delete/<code>', methods=['GET', 'POST'])
+@app.route('/delete/<path:code>', methods=['GET', 'POST'])
 def delete(code):
 
     result = supabase.table("urls").select("*").eq("code", code).execute()

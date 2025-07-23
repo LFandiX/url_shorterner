@@ -1,19 +1,100 @@
 <!DOCTYPE html>
 <html>
-<head><title>Shorten URL</title></head>
+<head><title>Shorten URL</title>
+<style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 25px 30px;
+      margin-top: 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      color: #34495e;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      background-color: #3498db;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin-top: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
 <body>
-  <h2>Shorten Your URL</h2>
-  <form method="post">
-    <label>Long URL:</label><br>
-    <input type="text" name="url" required><br><br>
+  <div class="container">
+    <h2>Shorten Your URL</h2>
+    <form method="post">
+      <label>Long URL:</label>
+      <input type="text" name="url" required>
 
-    <label>Custom Shortcode (optional):</label><br>
-    <input type="text" name="custom_code"><br><br>
+      <label>Custom Shortcode (optional):</label>
+      <input type="text" name="custom_code">
 
-    <label>Admin Code:</label><br>
-    <input type="password" name="admincode"><br><br>
+      <label>Admin Code:</label>
+      <input type="password" name="admincode">
 
-    <input type="submit" value="Shorten">
-  </form>
+      <input type="submit" value="Shorten">
+    </form>
+  </div>
 </body>
 </html>
