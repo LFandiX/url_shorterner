@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><title>Shorten URL</title>
-<style>
+<head>
+  <title>Shorten URL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f5f7fa;
@@ -15,12 +17,13 @@
 
     .container {
       background-color: #fff;
-      padding: 25px 30px;
-      margin-top: 50px;
+      padding: 25px 20px;
+      margin-top: 40px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 500px;
+      width: 90vw;
+      max-width: 480px;
+      min-width: 280px;
       box-sizing: border-box;
     }
 
@@ -71,13 +74,7 @@
     input[type="submit"]:hover {
       background-color: #2980b9;
     }
-
-    @media (max-width: 600px) {
-      .container {
-        margin-top: 20px;
-        padding: 20px;
-      }
-    }
+    
   </style>
 </head>
 <body>
